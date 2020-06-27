@@ -16,34 +16,34 @@ class _ConversorModuleState extends State<ConversorModule> {
     return LayoutBuilder(
       builder: (context, constraints) => SafeArea(
         top: false,
-            bottom: false,
-            child: Container (
-              child: BlocBuilder<ConversorBloc, DefaultState>(
-                bloc: BlocProvider.of<ConversorBloc>(context),
-                builder: (BuildContext context, DefaultState state) {
+        bottom: false,
+        child: Container (
+          child: BlocBuilder<ConversorBloc, DefaultState>(
+            bloc: BlocProvider.of<ConversorBloc>(context),
+            builder: (BuildContext context, DefaultState state) {
 
-                  if (state is Initial) {
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                  
-                  if (state is Loading) {
-                     return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                  
-                  if (state is GetIbovespaDataLoaded) {
-                     return Center(
-                      child: ConversorBody(data: state.data),
-                    );
-                  }
+              if (state is Initial) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              
+              if (state is Loading) {
+                  return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              
+              if (state is GetIbovespaDataLoaded) {
+                  return Center(
+                  child: ConversorBody(data: state.data),
+                );
+              }
 
-                  return Container();
-                },
-              ),
-            ),
+              return Container();
+            },
+          ),
+        ),
       ),
       
     );
